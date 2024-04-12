@@ -32,6 +32,7 @@ jobs:
           import time
           import os
 
+          har_dir = "har"
           with open('tpls_history.json', 'r', encoding='utf8') as f:
               hfile = json.loads(f.read())
               for name, har in list(hfile['har'].items()):
