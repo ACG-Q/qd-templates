@@ -1,0 +1,48 @@
+name: Update Base64 Content
+on:
+  workflow_dispatch: {}
+  push:
+    paths:
+      - tpls_history.json
+      - .github/workflows/update_content.yaml
+    branches:
+      - master
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' && !contains(github.event.head_commit.author.name, '[bot]')
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run python code
+        run: |
+          python3 -c """
+          import base64
+          import json
+          import time
+
+          with open('tpls_history.json', 'r', encoding='utf8') as f:
+              hfile = json.loads(f.read())
+              for name, har in list(hfile['har'].items()):
+                  har_file = os.path.join(har_dir, har['filename'])
+                  with open(har_file, 'rb') as f:
+                      har_content = f.read()
+                      json_content = json.loads(har_content)
+                      hfile['har'][name]['content'] = base64.b64encode(json.dumps(json_content, ensure_ascii=False).encode('utf8')).decode('utf8')
+              hfile['version'] = time.strftime('%Y%m%d', time.localtime())
+          json.dump(hfile, open('tpls_history.json', 'w', encoding='utf8'), indent=4, ensure_ascii=False)
+          """
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Automated update content
