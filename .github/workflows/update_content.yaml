@@ -32,11 +32,11 @@ jobs:
           import time
           import os
 
-          har_dir = "har"
+          har_dir = "har"  # 确保这里的值是一个字符串
           with open('tpls_history.json', 'r', encoding='utf8') as f:
               hfile = json.loads(f.read())
-              for name, har in list(hfile['har'].items()):
-                  har_file = os.path.join(har_dir, har['filename'])
+              for name, har_data in list(hfile['har'].items()):
+                  har_file = os.path.join(har_dir, har_data['filename'])
                   with open(har_file, 'rb') as f:
                       har_content = f.read()
                       json_content = json.loads(har_content)
