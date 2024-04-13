@@ -29,6 +29,10 @@ jobs:
         run: |
           python .github/src/merge_encryption.py
 
+      - name: Run python code
+        run: |
+          python .github/src/generate_list.py
+
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:

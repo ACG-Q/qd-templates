@@ -35,6 +35,7 @@ if issue_json and 'name' in issue_json and 'author' in issue_json and 'filename'
     # 检查hfile中是否存在对应的记录
     if 'har' not in hfile or not isinstance(hfile['har'], dict):
         hfile['har'] = {}
+
     elif issue_json['name'] in hfile['har']:
         update = True
     else:
@@ -76,23 +77,32 @@ if issue_json and 'name' in issue_json and 'author' in issue_json and 'filename'
         'author': issue_json['author'],
         'url': f'https://raw.githubusercontent.com/{repo_full_name}/{repo_default_branch}/{har_file}',
         'update': update,
-        'comments': issue_json.get('comments', '').replace('\\r', '\r').replace('\\n', '\n').replace('\r', '').replace(
-            '\n', '<br>').strip(),
+        'comments': issue_json.get('comments', '').replace('\\r', '\r').replace('\\n', '\n').replace('\r', '').replace('\n', '<br>').strip(),
         'filename': issue_json['filename'],
         'content': base64.b64encode(json.dumps(har_content, ensure_ascii=False).encode('utf8')).decode('utf8'),
-        'date': hfile['har'][issue_json['name']]['date'] if update else time.strftime('%Y-%m-%d %H:%M:%S',
-                                                                                        time.localtime()),
-        'version': hfile['har'][issue_json['name']]['version'] if update else time.strftime('%Y%m%d',
-                                                                                                time.localtime()),
+        'version': hfile['har'][issue_json['name']]['version'] if update else time.strftime('%Y%m%d', time.localtime()),
         'commenturl': commenturl
     }
+
+    # 更新har的时间
+    if update:
+        if hfile['har'][issue_json['name']]["create_date"] is None:
+            har["create_date"] = hfile['har'][issue_json['name']]["date"]
+        else:
+            # 创建日期不变
+            har["create_date"] = hfile['har'][issue_json['name']]["create_date"]
+        # 更新日期
+        har["date"] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
+    else:
+        har["date"] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
+        har["create_date"] = har["date"]
 
     # 更新hfile['har'][issue_json['name']]
     if not hfile['har'].get(issue_json['name']):
         hfile['har'][issue_json['name']] = har
+    
     elif update and hfile['har'][issue_json['name']] != har:
         hfile['har'][issue_json['name']] = har
-        hfile['har'][issue_json['name']]['date'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
         hfile['har'][issue_json['name']]['version'] = time.strftime('%Y%m%d', time.localtime())
 
     # 更新tpls_history.json文件
