@@ -6,8 +6,7 @@
 
 项目基于开源的 QD 框架, 用于指导用户学习如何使用 QD 框架. 项目中的模板均为开源模板, 仅供学习参考使用, 请勿用于商业用途.
 
-<a href="LIST.md" target="_blank">模板列表</a>
-
+点击查看: <a href="LIST.md" target="_blank">模板列表</a>
 
 ## 😀使用 Issue 发布模板
 
