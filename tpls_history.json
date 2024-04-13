@@ -1,18 +1,6 @@
 {
     "version": "20240412",
     "har": {
-        "[Token]_奇妙应用": {
-            "name": "[Token]_奇妙应用",
-            "author": "",
-            "url": "https://raw.githubusercontent.com/ACG-Q/qd-templates/main/har/[Token]_奇妙应用.har",
-            "update": false,
-            "comments": "应用名称: 奇妙应用<br>应用包名: com.magicalstory.AppStore<br>应用下载: https://www.123pan.com/s/izDSVv-fOkWA.html<br><br>建议使用ProxyPin来进行抓包获取Token",
-            "filename": "[Token]_奇妙应用.har",
-            "content": "W3siY29tbWVudCI6ICLlpYflppnlupTnlKjnrb7liLAiLCAicmVxdWVzdCI6IHsibWV0aG9kIjogIkdFVCIsICJ1cmwiOiAiaHR0cDovL3d3dy5tYWdpY2FsYXBwLmNuL3VzZXIvYXBpL3NpZ25EYXlzIiwgImhlYWRlcnMiOiBbeyJuYW1lIjogIkFjY2VwdCIsICJ2YWx1ZSI6ICIqLyoifSwgeyJuYW1lIjogIlVzZXItQWdlbnQiLCAidmFsdWUiOiAib2todHRwLzQuOS4zIn0sIHsibmFtZSI6ICJIb3N0IiwgInZhbHVlIjogInd3dy5tYWdpY2FsYXBwLmNuIn0sIHsibmFtZSI6ICJUb2tlbiIsICJ2YWx1ZSI6ICJ7e3Rva2VufX0ifV0sICJjb29raWVzIjogW10sICJkYXRhIjogIiIsICJtaW1lVHlwZSI6ICIifSwgInJ1bGUiOiB7InN1Y2Nlc3NfYXNzZXJ0cyI6IFt7InJlIjogIjIwMCIsICJmcm9tIjogInN0YXR1cyJ9XSwgImZhaWxlZF9hc3NlcnRzIjogW10sICJleHRyYWN0X3ZhcmlhYmxlcyI6IFtdfX0sIHsicmVxdWVzdCI6IHsibWV0aG9kIjogIlBPU1QiLCAidXJsIjogImFwaTovL3V0aWwvdXJsZGVjb2RlIiwgImhlYWRlcnMiOiBbXSwgImNvb2tpZXMiOiBbXSwgImRhdGEiOiAiY29udGVudD3nrb7liLDmiJDlip8ifSwgInJ1bGUiOiB7InN1Y2Nlc3NfYXNzZXJ0cyI6IFt7InJlIjogIjIwMCIsICJmcm9tIjogInN0YXR1cyJ9XSwgImZhaWxlZF9hc3NlcnRzIjogW10sICJleHRyYWN0X3ZhcmlhYmxlcyI6IFt7Im5hbWUiOiAiX19sb2dfXyIsICJyZSI6ICJcIui9rOaNouWQjlwiOiBcIiguKilcIiIsICJmcm9tIjogImNvbnRlbnQifV19fV0=",
-            "date": "2024-04-12 13:26:26",
-            "version": "20240412",
-            "commenturl": "https://github.com/ACG-Q/qd-templates/issues/3"
-        },
         "[Token]_磁力猫": {
             "name": "[Token]_磁力猫",
             "author": "六记",
@@ -24,6 +12,18 @@
             "date": "2024-04-12 13:21:53",
             "version": "20240412",
             "commenturl": "https://github.com/ACG-Q/qd-templates/issues/1"
+        },
+        "奇妙应用": {
+            "name": "奇妙应用",
+            "author": "六记",
+            "url": "https://raw.githubusercontent.com/ACG-Q/qd-templates/main/har/[Token]_奇妙应用.har",
+            "update": true,
+            "comments": "应用名称: 奇妙应用<br>应用包名: com.magicalstory.AppStore<br>应用下载: https://www.123pan.com/s/izDSVv-fOkWA.html<br><br>建议使用ProxyPin来进行抓包获取Token",
+            "filename": "[Token]_奇妙应用.har",
+            "content": "W3siY29tbWVudCI6ICLlpYflppnlupTnlKjnrb7liLAiLCAicmVxdWVzdCI6IHsibWV0aG9kIjogIkdFVCIsICJ1cmwiOiAiaHR0cDovL3d3dy5tYWdpY2FsYXBwLmNuL3VzZXIvYXBpL3NpZ25EYXlzIiwgImhlYWRlcnMiOiBbeyJuYW1lIjogIkFjY2VwdCIsICJ2YWx1ZSI6ICIqLyoifSwgeyJuYW1lIjogIlVzZXItQWdlbnQiLCAidmFsdWUiOiAib2todHRwLzQuOS4zIn0sIHsibmFtZSI6ICJIb3N0IiwgInZhbHVlIjogInd3dy5tYWdpY2FsYXBwLmNuIn0sIHsibmFtZSI6ICJUb2tlbiIsICJ2YWx1ZSI6ICJ7e3Rva2VufX0ifV0sICJjb29raWVzIjogW10sICJkYXRhIjogIiIsICJtaW1lVHlwZSI6ICIifSwgInJ1bGUiOiB7InN1Y2Nlc3NfYXNzZXJ0cyI6IFt7InJlIjogIjIwMCIsICJmcm9tIjogInN0YXR1cyJ9XSwgImZhaWxlZF9hc3NlcnRzIjogW10sICJleHRyYWN0X3ZhcmlhYmxlcyI6IFtdfX0sIHsicmVxdWVzdCI6IHsibWV0aG9kIjogIlBPU1QiLCAidXJsIjogImFwaTovL3V0aWwvdXJsZGVjb2RlIiwgImhlYWRlcnMiOiBbXSwgImNvb2tpZXMiOiBbXSwgImRhdGEiOiAiY29udGVudD3nrb7liLDmiJDlip8ifSwgInJ1bGUiOiB7InN1Y2Nlc3NfYXNzZXJ0cyI6IFt7InJlIjogIjIwMCIsICJmcm9tIjogInN0YXR1cyJ9XSwgImZhaWxlZF9hc3NlcnRzIjogW10sICJleHRyYWN0X3ZhcmlhYmxlcyI6IFt7Im5hbWUiOiAiX19sb2dfXyIsICJyZSI6ICJcIui9rOaNouWQjlwiOiBcIiguKilcIiIsICJmcm9tIjogImNvbnRlbnQifV19fV0=",
+            "date": "2024-04-13 17:40:12",
+            "version": "20240413",
+            "commenturl": "https://github.com/ACG-Q/qd-templates/issues/3"
         }
     }
 }
