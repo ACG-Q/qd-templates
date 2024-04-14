@@ -18,8 +18,11 @@ for app_name, app_data in jsonData['har'].items():
     create_data = app_data.get('create_date', 'N/A')  # 如果不存在，提供默认值'N/A'
     data = app_data.get('date', 'N/A')  # 如果不存在，提供默认值'N/A'
 
+    # 检查app_data['update']的值，如果为True，则使用'✅'，否则使用'❎'
+    update_status = '✅' if app_data['update'] else '❎'
+
     # 添加行到Markdown内容中
-    markdown_content += f"| {app_name} | {app_data['author']} | [URL]({app_data['url']}) | {app_data['update']} | [评论]({app_data['commenturl']}) | {app_data['filename']} | {create_data} | {data} | {app_data['version']} |\n"
+    markdown_content += f"| {app_name} | {app_data['author']} | [URL]({app_data['url']}) | {update_status} | [评论]({app_data['commenturl']}) | {app_data['filename']} | {create_data} | {data} | {app_data['version']} |\n"
 
 # 写入文件
 with open(list_path, 'w', encoding="utf8") as list_file:
