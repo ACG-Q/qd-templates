@@ -51,8 +51,8 @@
             "version": "20240413",
             "commenturl": "https://github.com/ACG-Q/qd-templates/issues/10"
         },
-        "[账号]_18acg": {
-            "name": "[账号]_18acg",
+        "18acg": {
+            "name": "18acg",
             "author": "六记",
             "url": "https://raw.githubusercontent.com/ACG-Q/qd-templates/main/har/[账号]_18acg.har",
             "update": true,
@@ -62,7 +62,7 @@
             "version": "20240414",
             "commenturl": "https://github.com/ACG-Q/qd-templates/issues/12",
             "create_date": "2024-04-14 17:13:26",
-            "date": "2024-04-14 17:42:36"
+            "date": "2024-04-14 17:46:31"
         }
     }
 }
