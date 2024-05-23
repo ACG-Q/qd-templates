@@ -108,7 +108,7 @@ if issue_json and 'name' in issue_json and 'author' in issue_json and 'filename'
         json.dump(hfile, f, indent=4, ensure_ascii=False)
 
     # 删除create_date字段
-    hfile_no_create_date = copy.deepcopy(hfile)
+    hfile_no_create_date = hfile
     for k, v in hfile_no_create_date['har'].items():
         if 'create_date' in v:
             del v['create_date']
