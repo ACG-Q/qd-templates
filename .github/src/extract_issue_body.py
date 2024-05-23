@@ -3,8 +3,8 @@ import json
 import os
 import time
 
-# 读取tpls_history.json文件
-with open('tpls_history.json', 'r', encoding='utf8') as f:
+# 读取tpls_history_with_create_date.json文件
+with open('tpls_history_with_create_date.json', 'r', encoding='utf8') as f:
     hfile = json.load(f)
 
 # 从环境变量获取issue数据
@@ -66,7 +66,6 @@ if issue_json and 'name' in issue_json and 'author' in issue_json and 'filename'
         except OSError as e:
             print(f"Failed to create directory {har_dir}: {e}")
 
-
     # 写入新文件
     with open(har_file, 'w', encoding='utf8') as f:
         f.write(json.dumps(har_content, indent=4, ensure_ascii=False))
@@ -86,7 +85,7 @@ if issue_json and 'name' in issue_json and 'author' in issue_json and 'filename'
 
     # 更新har的时间
     if update:
-        if hfile['har'][issue_json['name']]["create_date"] is None:
+        if hfile['har'][issue_json['name']].get("create_date") is None:
             har["create_date"] = hfile['har'][issue_json['name']]["date"]
         else:
             # 创建日期不变
@@ -100,11 +99,20 @@ if issue_json and 'name' in issue_json and 'author' in issue_json and 'filename'
     # 更新hfile['har'][issue_json['name']]
     if not hfile['har'].get(issue_json['name']):
         hfile['har'][issue_json['name']] = har
-    
     elif update and hfile['har'][issue_json['name']] != har:
         hfile['har'][issue_json['name']] = har
         hfile['har'][issue_json['name']]['version'] = time.strftime('%Y%m%d', time.localtime())
 
-    # 更新tpls_history.json文件
-    with open('tpls_history.json', 'w', encoding='utf8') as f:
+    # 保存带有create_date的hfile
+    with open('tpls_history_with_create_date.json', 'w', encoding='utf8') as f:
         json.dump(hfile, f, indent=4, ensure_ascii=False)
+
+    # 删除create_date字段
+    hfile_no_create_date = copy.deepcopy(hfile)
+    for k, v in hfile_no_create_date['har'].items():
+        if 'create_date' in v:
+            del v['create_date']
+
+    # 保存不带create_date的hfile
+    with open('tpls_history.json', 'w', encoding='utf8') as f:
+        json.dump(hfile_no_create_date, f, indent=4, ensure_ascii=False)
